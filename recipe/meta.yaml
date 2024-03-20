@@ -1,5 +1,5 @@
 {% set name = "fenicsprecice" %}
-{% set version = "2.0.0" %}
+{% set version = "2.1.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/precice/fenics-adapter/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: e903d9d941cdf7630c1f76e2854b06f7366b3b4e3455b12e5072d1755de39b26
+  sha256: 036b65f145a8104051e1dda990255b753ffde81ac3c5f83f4e82b35ceccc83fc
 
 build:
   number: 0
