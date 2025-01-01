@@ -11,7 +11,7 @@ source:
   sha256: 42983707273dfeb4fa1257f6e2f9a0d85e5f49a6c64de98a4a2b3794144c981e
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -19,16 +19,18 @@ requirements:
   host:
     - fenics
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
     - mpi4py
     - numpy >=1.13.3
     - pyprecice >=2.0.0
-    - python >=3.6
+    - python >={{ python_min }}
     - scipy
     - fenics
 
 test:
+  requires:
+    - python {{ python_min }}
   commands:
     - export OMPI_MCA_plm=isolated
     - export OMPI_MCA_rmaps_base_oversubscribe=yes
