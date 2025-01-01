@@ -20,6 +20,7 @@ requirements:
     - fenics
     - pip
     - python {{ python_min }}
+    - setuptools
   run:
     - mpi4py
     - numpy >=1.13.3
