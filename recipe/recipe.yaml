@@ -1,0 +1,58 @@
+schema_version: 1
+
+context:
+  name: fenicsprecice
+  version: "2.3.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/precice/fenics-adapter/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: f342a98368ab8a1963f96af0ebde936590ac1237f3d93274c63745bfa10df0af
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - fenics
+    - pip
+    - python ${{ python_min }}.*
+    - setuptools
+  run:
+    - mpi4py
+    - numpy >=1.13.3
+    - pyprecice >=2.0.0
+    - python >=${{ python_min }}
+    - scipy
+    - fenics
+
+tests:
+  - requirements:
+      run:
+        - python ${{ python_min }}.*
+    script:
+      - export OMPI_MCA_plm=isolated
+      - export OMPI_MCA_rmaps_base_oversubscribe=yes
+      - export OMPI_MCA_btl_vader_single_copy_mechanism=none
+      - python -c "import fenicsprecice"
+
+about:
+  license: LGPL-3.0-or-later
+  license_file: LICENSE
+  summary: preCICE-adapter for the open source computing platform FEniCS
+  description: |
+    preCICE-adapter for the open source computing platform FEniCS.
+    Note: The adapter currently only supports 2D simulations in FEniCS.
+  homepage: https://precice.org
+  repository: https://github.com/precice/fenics-adapter
+  documentation: https://precice.org/adapter-fenics.html
+
+extra:
+  recipe-maintainers:
+    - IshaanDesai
+    - jan-janssen
