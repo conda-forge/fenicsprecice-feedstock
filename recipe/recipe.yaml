@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/precice/fenics-adapter/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: f342a98368ab8a1963f96af0ebde936590ac1237f3d93274c63745bfa10df0af
+  sha256: 9ab77e6e79c1e00f233542991df54ce4814e7c8c3573b44022f9ca6f42b0f1df
 
 build:
   number: 1
