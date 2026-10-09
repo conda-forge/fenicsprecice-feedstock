@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: fenicsprecice
-  version: "2.3.0"
+  version: "2.3.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://github.com/precice/fenics-adapter/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 9ab77e6e79c1e00f233542991df54ce4814e7c8c3573b44022f9ca6f42b0f1df
+  sha256: ff856a55028d3aa75d8ce41da73f56e99d4a541bd71eadf2a0f3b894f1f4f7d2
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
 
